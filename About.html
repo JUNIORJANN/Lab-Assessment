@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link rel="stylesheet" href="LadangStyle.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <div class="container">
+        <div class="about-content">
+            <h1>About LadangLink</h1>
+            <p>
+                LadangLink is your go-to online platform connecting local farmers directly with consumers. We bring the
+                freshest produce, artisanal goods, and farm-to-table products from multiple vendors straight to your
+                fingertips.
+                Our mission is to empower small-scale farmers and vendors by giving them a digital marketplace to
+                showcase their products, while providing customers with easy access to high-quality, fresh, and locally
+                sourced items.
+                Whether you are looking for seasonal vegetables, organic fruits, homemade jams, or specialty farm
+                products, LadangLink makes it simple to discover, order, and enjoy the best of local agriculture all in
+                one convenient platform.
+                We believe in sustainability, community support, and transparency. By bridging the gap between farms and
+                consumers, LadangLink ensures everyone benefits from farmers earning fair prices to customers enjoying
+                fresh, trustworthy products.
+                Join us in supporting local farming and experience the taste of fresh, quality produce delivered right
+                from the farm to your table.
+            </p>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script>
+        fetch("Navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+                let script = document.createElement('script');
+                script.src = 'dropdown.js';
+                document.body.appendChild(script);
+            })
+            .catch(err => console.error("Navbar load error:", err));
+
+        fetch("Footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(err => console.error("Footer load error:", err));    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-witdh, initial-scale=1.0">
+    <title>LadangLink</title>
+    <link rel="stylesheet" href="LadangStyle.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div class="container">
+        <div class="content">
+            <h1>FARMING</h1>
+            <p>
+                Connecting farmers and customers through a modern multi-vendor marketplace platform.
+                <br>
+                Fresh. Local. Trusted.
+            </p>
+            <div class="image-section">
+                <img src="BackgroundFarm.webp" alt="farm" style="width:100%; max-width:800px;">
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+    <script>
+        fetch("Navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+                let script = document.createElement('script');
+                script.src = 'dropdown.js';
+                document.body.appendChild(script);
+            })
+            .catch(err => console.error("Navbar load error:", err));
+
+        fetch("Footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(err => console.error("Footer load error:", err));
+    </script>
+</body>
+
+</html>

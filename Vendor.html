@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vendor Account</title>
+    <link rel="stylesheet" href="LadangStyle.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <div class="form-container">
+        <h2>New Vendor Register</h2>
+        <form action="VendorRegister.php" method="POST" enctype="multipart/form-data">
+            <label>Vendor Name</label>
+            <input type="text" name="vendor_name" placeholder="e.g., Fresh Farm" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="vendor@example.com" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="******" required>
+
+            <label>Store Description</label>
+            <textarea name="description" rows="3"
+                placeholder="Tell customers about your farm products and contact information"></textarea>
+
+            <label>Upload Logo</label>
+            <input type="file" name="image" accept="image/*">
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an Account? <a href="VendorLogin.html">Login</a></p>
+    </div>
+    <div id="footer"></div>
+    <script>
+        fetch("Navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+                let script = document.createElement('script');
+                script.src = 'dropdown.js';
+                document.body.appendChild(script);
+            })
+            .catch(err => console.error("Navbar load error:", err));
+
+        fetch("Footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(err => console.error("Footer load error:", err));
+    </script>
+</body>
+
+</html>
